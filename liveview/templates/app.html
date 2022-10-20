@@ -1,0 +1,32 @@
+{% load unicorn %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block title %}
+		<title>Live Telemetry</title>
+		{% endblock %}
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+        {% load static %}
+		{% load bootstrap4 %}
+
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+		{% bootstrap_css %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script> 
+
+        {% unicorn_scripts %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+	</head>
+	<body>
+        {% csrf_token %}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-10">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+		</div>
+		{% bootstrap_javascript jquery='full' %}
+	</body>
+</html>
