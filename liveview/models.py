@@ -10,6 +10,9 @@ class CarData(models.Model):
     tstamp = models.DateTimeField() # Time stamp of datetime.datetime class
     temperature = models.FloatField() # Hexadecimal 
     soc = models.FloatField()
+    a_x = models.FloatField()
+    a_y = models.FloatField()
+    a_z = models.FloatField()
     binary_var = models.BinaryField()
     # Etc ... 
 
@@ -20,3 +23,4 @@ class CarDataTypes(models.Model):
     """
 
     # Fields
+    pass
