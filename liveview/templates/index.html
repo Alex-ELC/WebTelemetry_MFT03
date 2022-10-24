@@ -21,7 +21,41 @@
   </div>
   <div class="row">
     <div class="col-lg-6" style="background-color: lightblue;">
-      Indicators go here
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="container-fluid">
+              <canvas id="batteryIndicator"></canvas>
+              <script>
+                const ctx_batteryInd = document.getElementById('batteryIndicator').getContext('2d');
+                var battery_percentage = 55;
+                var xValues = [];
+                var yValues = [battery_percentage, 100-battery_percentage];
+                var barColors = ["blue", "white"];
+                var battery_soc = new Chart(ctx_batteryInd, {
+                  type: "doughnut",
+                  data: {
+                    labels: xValues,
+                    datasets: [{
+                      backgroundColor: barColors,
+                      data: yValues
+                    }]
+                  },
+                  options: {
+                    title: {
+                      display: true,
+                      text: "Battery SOC"
+                    }
+                  }
+                });
+              </script>
+            </div>
+          </div>
+          <div class="col-lg-6" style="background-color: grey;">
+            Indicator
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-lg-6" style="text-align: center;">
       <div class="container-fluid">
